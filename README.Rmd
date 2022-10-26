@@ -2,7 +2,7 @@
 title: Tag Generation from Rmarkdown Files
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -22,18 +22,21 @@ that was created by Maxime Wack. The following modifications were done:
 Given an example Rmarkdown file (`tests/test.Rmd`):
 
 ```{bash}
+#| comment: ""
+#| echo: false
 cat tests/test.Rmd
 ```
 
 If we ran `get-rmd-tags.py` on this file, we would get
 
 ```{bash}
+#| comment: ""
 ./get-rmd-tags.py tests/test.Rmd
 ```
 
 To integrate this with tagbar, put this in your `.vimrc` file:
 
-```vim
+```{vim}
 let g:tagbar_type_rmd = {
           \   'ctagstype':'rmd'
           \ , 'kinds':['h:header', 'c:chunk', 'f:function', 'v:variable']

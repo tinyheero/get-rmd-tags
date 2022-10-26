@@ -15,22 +15,18 @@ that was created by Maxime Wack. The following modifications were done:
 
 Given an example Rmarkdown file (`tests/test.Rmd`):
 
-``` bash
-cat tests/test.Rmd
-```
+    ---
+    title: "Test Rmarkdown Files"
+    ---
 
-    ## ---
-    ## title: "Test Rmarkdown Files"
-    ## ---
-    ## 
-    ## # Title
-    ## 
-    ## ```{r test}
-    ## ```
-    ## 
-    ## ```{r}
-    ## #| label: labelled-chunk
-    ## ```
+    # Title
+
+    ```{r test}
+    ```
+
+    ```{r}
+    #| label: labelled-chunk
+    ```
 
 If we ran `get-rmd-tags.py` on this file, we would get
 
@@ -38,9 +34,9 @@ If we ran `get-rmd-tags.py` on this file, we would get
 ./get-rmd-tags.py tests/test.Rmd
 ```
 
-    ## Title    tests/test.Rmd  /^# Title$/;"   h   line:5  
-    ## test tests/test.Rmd  /^```{r test}$/;"   c   line:7  header:Title
-    ## labelled-chunk   tests/test.Rmd  /^#| label: labelled-chunk$/;"  c   line:11 header:Title
+    Title   tests/test.Rmd  /^# Title$/;"   h   line:5  
+    test    tests/test.Rmd  /^```{r test}$/;"   c   line:7  header:Title
+    labelled-chunk  tests/test.Rmd  /^#| label: labelled-chunk$/;"  c   line:11 header:Title
 
 To integrate this with tagbar, put this in your `.vimrc` file:
 
