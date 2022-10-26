@@ -41,7 +41,8 @@ If we ran `get-rmd-tags.py` on this file, we would get
 
 ## 2.1 Integrating this with Tagbar
 
-To integrate this with tagbar, put this in your `.vimrc` file:
+To integrate this with tagbar, `git clone` this repository. Then put
+this in your `.vimrc` file:
 
     let g:tagbar_type_rmd = {
               \   'ctagstype':'rmd'
@@ -52,3 +53,6 @@ To integrate this with tagbar, put this in your `.vimrc` file:
               \ , 'ctagsbin': '/path/to/get-rmd-tags.py'
               \ , 'ctagsargs': ''
               \ }
+
+and change the value of the `ctagsbin` key to point to the
+`get-rmd-tags.py` script in this repository.
